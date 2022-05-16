@@ -2,7 +2,7 @@ const todos = [];
 let nextId = 1;
 
 class Todo {
-  constructor(title, body) {
+  constructor({ title, body }) {
     this.id = nextId++;
     this.title = title;
     this.body = body;
@@ -11,6 +11,22 @@ class Todo {
   }
 }
 
-modules.exports = {
-  
+// データ追加処理
+for (let i = 0; i < 5; i++) {
+  const index = i + 1;
+  const todo = new Todo({
+    title: "タイトル" + index,
+    body: "ボディ" + index,
+  });
+
+  todos.push(todo);
 }
+
+// console.table(todos);
+
+// データである配列のコピーを返す
+module.exports = {
+  findAll: () => {
+    return todos.slice();
+  },
+};
