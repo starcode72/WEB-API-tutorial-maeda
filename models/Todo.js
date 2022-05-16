@@ -24,7 +24,7 @@ for (let i = 0; i < 5; i++) {
 
 // console.table(todos);
 
-// データである配列のコピーを返す
+// slice()はデータ配列のコピーを返す
 module.exports = {
   findAll: () => {
     return todos.slice();
