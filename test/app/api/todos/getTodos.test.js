@@ -22,6 +22,6 @@ describe("test 『GET /api/todos』", () => {
       assert.equal(typeof todo.createdAt === "string", true);
       assert.equal(typeof todo.updatedAt === "string", true);
     });
-    console.log(response, 'todos forEach');
+    console.log(response, "todos forEach");
   });
 });

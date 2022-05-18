@@ -21,12 +21,27 @@ for (let i = 0; i < 5; i++) {
 
   todos.push(todo);
 }
-
 // console.table(todos);
 
-// slice()はデータ配列のコピーを返す
+// slice()はデータ配列のコピーを返す 全体(引数無しは全体)
 module.exports = {
   findAll: () => {
     return todos.slice();
+  },
+  // createメソッド
+  create: ({ title, body }) => {
+    if (!title) {
+      throw new Error("titleは必須です");
+    }
+    if (!body) {
+      throw new Error("bodyは必須です");
+    }
+    const todo = new Todo({
+      title: title,
+      body: body,
+    });
+    todos.push(todo);
+
+    return todo;
   },
 };
