@@ -3,9 +3,9 @@ const router = express.Router();
 const controller = require("../controllers/todos");
 
 // このrouer内の処理をコントローラーファイルで管理する
-router
-    .route("/")
-    .get(controller.getTodos);
+router.route("/")
+.get(controller.getTodos)
+.post(controller.postTodo)
 
 module.exports = router;
 

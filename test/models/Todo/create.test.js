@@ -6,7 +6,7 @@ describe("Todo.create", () => {
     assert.equal(typeof Todo.create === "function", true);
   });
 
-  // 意図的なtitleを含まない例外用エラーテスト
+  // ①意図的なtitleを含まない例外用エラーテスト
   it("メソッド実行後、引数にtitleプロパティを含むオブジェクトがないとエラーになる", () => {
     const dataList = [
       {}, // empty data
@@ -22,7 +22,7 @@ describe("Todo.create", () => {
     });
   });
 });
-// 意図的なbodyを含まないエラーテスト
+// ②意図的なbodyを含まないエラーテスト
 it("メソッド実行時、引数にbodyプロパティを含むオブジェクトがないとエラーになる", () => {
   try {
     Todo.create({ title: "タイトル" });
@@ -32,7 +32,7 @@ it("メソッド実行時、引数にbodyプロパティを含むオブジェク
   }
 });
 
-// 正しいデータを渡した場合の通常の成功用テスト
+// ③正しいデータを渡した場合の通常の成功用テスト
 it("メソッド実行時、正しい引数を渡すと新規にTodoデータ制作して、作成したTodoを返す", () => {
   const oldTodos = Todo.findAll();
   const data = {
