@@ -58,10 +58,28 @@ module.exports = {
     if (!todo) {
       throw new Error("idに該当するtodoが存在しません");
     }
-      todo.title = title;
-      todo.body = body;
-      todo.updatedAt = new Date();
+    todo.title = title;
+    todo.body = body;
+    todo.updatedAt = new Date();
 
-      return todo;
+    return todo;
+  },
+
+  remove: (id) => {
+    if (typeof id !== "number" || id < 1) {
+      throw new Error("idは必須です(1以上の数値)");
+    }
+
+    const targetIndex = todos.findIndex((todo) => id === todo.id);
+
+    // findIndex()メソッドは配列内の要素が指定されたテスト関数を満たす場合、配列内のインデックスを返します。そうで無い場合は　-1を返します。
+
+    if (targetIndex === -1) {
+      throw new Error("idに該当するtodoが存在しません");
+    }
+
+    const removedTodo = todos.splice(targetIndex, 1)[0];
+
+    return removedTodo;
   },
 };
