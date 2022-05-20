@@ -21,6 +21,24 @@ module.exports = {
       res.status(400).json({ message: error.message });
     }
   },
+  // 更新　入力された値を取得して変数化　　Todoファイルのupdateメソッドを呼び出す
+  putTodo: (req, res) => {
+    const id = req.params.id;
+    const { title, body } = req.body;
+    const parsedId = parseInt(id, 10);
+
+    try {
+      const updatedTodo = Todo.update({
+        id: parsedId,
+        title,
+        body,
+      });
+
+      res.status(200).json(updatedTodo);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+  },
 };
 
 // controller/todo.jsファイル

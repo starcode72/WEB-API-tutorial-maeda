@@ -3,12 +3,11 @@ const router = express.Router();
 const controller = require("../controllers/todos");
 
 // このrouer内の処理をコントローラーファイルで管理する
-router.route("/")
-.get(controller.getTodos)
-.post(controller.postTodo)
+router.route("/").get(controller.getTodos).post(controller.postTodo);
+
+router.route("/:id").put(controller.putTodo);
 
 module.exports = router;
-
 
 // routers/todos.jsファイル
 // 通常のrouterと同じにexpressを読み込んでローダー化
@@ -16,4 +15,3 @@ module.exports = router;
 // routerのgetルーティンでリクエストされたら
 // controller/todo.jsで
 // module.exportsでアウトプットされているものを使用する
-
